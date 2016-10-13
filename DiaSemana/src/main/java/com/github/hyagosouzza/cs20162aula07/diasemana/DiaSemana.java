@@ -2,55 +2,52 @@
  * Copyright (c) 2016. Fábrica de Software - Instituto de Informática (UFG)
  * Creative Commons Attribution 4.0 International License.
  */
-
 package com.github.hyagosouzza.cs20162aula07.diasemana;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
-
-/**Classe para obter o dia da semana a partir de uma data e referência.
+/**Classe para utilizar métodos a fim de descobrir o dia da semana de uma data
+ * específica.
  * @author Hyago Vieira de Souza
  * @version 1.0
  */
 public class DiaSemana {
-
     /**Método para ver o tamanho da data recebida e retornar se ela é aceita.
      * @author Hyago Vieira de Souza
      * @since Relase 01 da aplicação
-     * @param data int
+     * @param data final int
      * @return int
-     */ 
-    public static int verTamanhoData(int data){
+     */
+    public final int verTamanhoData(final int data) {
+        final int tamanhoData = 8;
         String convertido = Integer.toString(data);
-        if(convertido.length() == 8){
+        if (convertido.length() == tamanhoData) {
             return 0;
-        }else{
+        } else {
             return -1;
         }
     }
-    
     /**Método para verificar se o bissexto recebido é aceitável.
      * @author Hyago Vieira de Souza
      * @since Relase 01 da aplicação
-     * @param ano int
+     * @param ano final int
      * @return int
-     */ 
-    public static int verificaBissextoDado(int ano){
-        if(ano > 0){
+     */
+    public final int verificaBissextoDado(final int ano) {
+        if (ano > 0) {
             return 0;
-        }else{
+        } else {
             return -1;
         }
     }
-    
     /**Método para retornar o dia da semana correspondente a um certo número.
      * @author Hyago Vieira de Souza
      * @since Relase 01 da aplicação
-     * @param dia int
+     * @param dia final int
      * @return String - Dia da semana
-     */ 
-    public static String descobreDia(int dia){
+     */
+    public final String descobreDia(final int dia) {
+        final int quarta = 3, quinta = 4, sexta = 5, sabado = 6;
         switch (dia) {
             case 0:
                 return "Domingo";
@@ -58,240 +55,190 @@ public class DiaSemana {
                 return "Segunda";
             case 2:
                 return "Terça";
-            case 3:
+            case quarta:
                 return "Quarta";
-            case 4:
+            case quinta:
                 return "Quinta";
-            case 5:
+            case sexta:
                 return "Sexta";
-            case 6:
+            case sabado:
                 return "Sábado";
             default:
                 return "Esse dia da semana não existe.";
         }
     }
-    
     /**Método para retornar um vetor com a data recebida.
      * @author Hyago Vieira de Souza
      * @since Relase 01 da aplicação
-     * @param data int
+     * @param data final int
      * @return int[]
-     */ 
-    public static int[] converteParaVetor(int data){
+     */
+    public final int[] converteParaVetor(final int data) {
         String convertida = Integer.toString(data);
-        int vetor[] = new int[8];
-        
-        for(int i = 0; i < 8; i++){
-            vetor[i] = Integer.parseInt(convertida.substring(i, i+1));
+        final int tamanho = 8;
+        int[]vetor = new int[tamanho];
+        for (int contador = 0; contador < tamanho; contador++) {
+            vetor[contador] = Integer.parseInt(convertida.substring(contador,
+                    contador + 1));
         }
-        
         return vetor;
     }
-    
     /**Método para receber um vetor com uma data e retornar seu ano como um
      * inteiro.
      * @author Hyago Vieira de Souza
      * @since Relase 01 da aplicação
-     * @param vetor []int
+     * @param vetor final []int
      * @return int
-     */ 
-    public static int fazAno(int []vetor){
+     */
+    public final int fazAno(final int[]vetor) {
         int ano = 0;
-        int multiplicador = 1000;
-        for(int i = 0; i < 4; i++){
-            ano += vetor[i] * multiplicador;
-            multiplicador /= 10;
+        final int mil = 1000;
+        int multiplicador = mil;
+        final int divisor = 10;
+        final int tamanhoAno = 4;
+        for (int contador = 0; contador < tamanhoAno; contador++) {
+            ano = ano + vetor[contador] * multiplicador;
+            multiplicador = multiplicador / divisor;
         }
         return ano;
     }
-    
     /**Método para verificar se a data recebida é aceita.
      * @author Hyago Vieira de Souza
      * @since Relase 01 da aplicação
-     * @param ano int
-     * @param vetor []int
+     * @param ano final int
+     * @param vetor final []int
      * @return int
-     */ 
-    public static int verificaData(int []vetor, int ano){
-        boolean bissexto = (ano % 4 == 0) && ( (ano % 100 != 0) || 
-                (ano % 400 == 0) );
-        
-        if(((vetor[4] == 0 || vetor[4] == 1) && (vetor[5] == 1 || vetor[5] == 3 
-                || vetor[5] == 5 || vetor[5] == 7 || vetor[5] == 8 
-                || vetor[5] == 0 || vetor[5] == 2)) && (vetor[6] >= 3 
-                && vetor[7] >=2 )){
+     */
+    public final int verificaData(final int[]vetor, final int ano) {
+        final int quatro = 4, cem = 100, cinco = 5, tres = 3, sete = 7,
+                oito = 8, seis = 6, nove = 9, dez = 10, trinta = 30,
+                trintaUm = 31, vinteOito = 28;
+        boolean bissexto = (ano % quatro == 0) && ((ano % cem != 0)
+                || (ano % (quatro * cem) == 0));
+        if (vetor[quatro] == 0 && (vetor[cinco] == 1
+                || vetor[cinco] == tres || vetor[cinco] == cinco
+                || vetor[cinco] == sete || vetor[cinco] == oito)
+                && (vetor[seis] * dez + vetor[sete] > trintaUm)) {
             return -1;
-        }
-        else if(((vetor[4] == 0 || vetor[4] == 1) && (vetor[5] == 4 || vetor[5]
-                == 6 || vetor[5] == 9 || vetor[5] == 1 )) && (vetor[6] >= 3 
-                && vetor[7] >=1 )){
+        } else if ((vetor[quatro] == 1 && (vetor[cinco] == 0
+                || vetor[cinco] == 2))
+                && (vetor[seis] * dez + vetor[sete] > trintaUm)) {
             return -1;
-        }
-        else if(((vetor[4] == 0 && vetor[5] == 2) && bissexto)&& vetor[6] >= 3){
+        } else if ((vetor[quatro] == 0 && (vetor[cinco] == quatro
+                || vetor[cinco] == seis || vetor[cinco] == nove))
+                && (vetor[seis] * dez + vetor[sete] > trinta)) {
             return -1;
-        }
-        else if(((vetor[4] == 0 && vetor[5] == 2) && !bissexto)&& 
-                (vetor[6] >= 2 && vetor[7] >= 9)){
+        } else if ((vetor[quatro] == 1 && (vetor[cinco] == 1))
+                && (vetor[seis] * dez + vetor[sete] > trinta)) {
             return -1;
-        }
-        else if (vetor[0] + vetor[1] + vetor[2] + vetor[3] <= 0){
+        } else if (((vetor[quatro] == 0 && vetor[cinco] == 2)
+                && bissexto) && vetor[seis] >= tres) {
             return -1;
-        }
-        else if(vetor[4] >= 1 && vetor[5] >= 3){
+        } else if (((vetor[quatro] == 0 && vetor[cinco] == 2) && !bissexto)
+                && (vetor[seis] * dez + vetor[sete] > vinteOito)) {
             return -1;
-        }
-        else if(vetor[4] + vetor[5] <= 0){
+        } else if (vetor[0] + vetor[1] + vetor[2] + vetor[tres] <= 0) {
             return -1;
-        }
-        else if(vetor[6] + vetor[7] <= 0){
+        } else if (vetor[quatro] >= 1 && vetor[cinco] >= tres) {
             return -1;
-        }
-        else{
+        } else if (vetor[quatro] + vetor[cinco] <= 0) {
+            return -1;
+        } else if (vetor[seis] + vetor[sete] <= 0) {
+            return -1;
+        } else {
             return 0;
         }
     }
-    
-    /**Método para verificar a quantidade de dias entre duas datas (Data 
+    /**Método para verificar a quantidade de dias entre duas datas (Data
      * desejada maior que a data referência).
      * @author Hyago Vieira de Souza
      * @since Relase 01 da aplicação
-     * @param desejada int
-     * @param referência int
-     * @param d int
+     * @param desejada final int
+     * @param referencia final int
+     * @param d final int
      * @throw ParseExcepcion
      * @return int
-     */ 
-    public static long desej(int desejada, int referência, int d){
-        try{
-            String inicial = Integer.toString(referência);
+     */
+    public final long desej(final int desejada, final int referencia,
+            final int d) {
+        final int mil = 1000, vinteQuatro = 24, sessenta = 60;
+        try {
+            String inicial = Integer.toString(referencia);
             String fim = Integer.toString(desejada);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             Date dataDe = sdf.parse(inicial);
             Date dataAte = sdf.parse(fim);
-            long dif = (dataAte.getTime() - dataDe.getTime()) /(1000*60*60*24);
+            long dif = (dataAte.getTime() - dataDe.getTime()) / (mil * sessenta
+                    * sessenta * vinteQuatro);
             return dif;
-        }catch (ParseException e){
+        } catch (ParseException e) {
             e.printStackTrace();
             return -1;
-        }  
+        }
     }
-    
-    /**Método para verificar a quantidade de dias entre duas datas (Data 
+    /**Método para verificar a quantidade de dias entre duas datas (Data
      * desejada menor que a data referência).
      * @author Hyago Vieira de Souza
      * @since Relase 01 da aplicação
-     * @param desejada int
-     * @param referencia int
-     * @param d int
+     * @param desejada final int
+     * @param referencia final int
+     * @param d final int
      * @throw ParseExcepcion
      * @return int
-     */ 
-    public static long ref(int desejada, int referencia, int d){
-        try{
+     */
+    public final long ref(final int desejada, final int referencia,
+            final int d) {
+        try {
+            final int mil = 1000, vinteQuatro = 24, sessenta = 60;
             String inicial = Integer.toString(desejada);
             String fim = Integer.toString(referencia);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             Date dataDe = sdf.parse(inicial);
             Date dataAte = sdf.parse(fim);
-            long dif = (dataAte.getTime() - dataDe.getTime()) /(1000*60*60*24);
+            long dif = (dataAte.getTime() - dataDe.getTime()) / (mil * sessenta
+                    * sessenta * vinteQuatro);
             return dif;
-        }catch (ParseException e){
+        } catch (ParseException e) {
             e.printStackTrace();
             return -1;
         }
-        
     }
-    
     /**Método para verificar a maior data e retornar o número do dia da semana
      * desejado.
      * @author Hyago Vieira de Souza
      * @since Relase 01 da aplicação
-     * @param desejada int
-     * @param referencia int
-     * @param dia int
+     * @param desejada final int
+     * @param referencia final int
+     * @param dia final int
      * @return int
-     */ 
-    public static int resultado(int desejada, int referencia, int dia){
-        long d;
-        int i;
-        
-        if(desejada > referencia){
-            d = desej(desejada, referencia, dia);
-            for(i = 0; i < d % 7; i++){
-            }
-            if(i + dia > 6){
-                return (i + dia) - 7;
-            }
-            return i + dia;
-        }else{
-            d = ref(desejada, referencia, dia);
-            for(i = 0; i < d % 7; i++){
-            }
-            if(dia - i < 0){
-                return 7 -(dia +((dia - i)*(-1))) + dia;
-            }else{
-                return dia - i;
-            }
-            
-        }
-        
-    }
-    
-    /**Metodo para ler valor(es) e mostrar/imprimir o dia da semana desejado.
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
-     * @param args String
      */
-    public static void main(String[] args) {
-        
-        Scanner ler = new Scanner(System.in);
-        
-        System.out.print("Digite uma data desejada: ");
-        int desejada = ler.nextInt();
-        while(verTamanhoData(desejada) == -1){
-            System.out.print("Digite uma data maior que 0 e com 8 números: ");
-            desejada = ler.nextInt();
+    public final int resultado(final int desejada, final int referencia,
+            final int dia) {
+        long d;
+        int contador;
+        final int sete = 7, seis = 6;
+        if (desejada > referencia) {
+            d = desej(desejada, referencia, dia);
+            contador = 0;
+            while (contador < (d % sete)) {
+                contador++;
+            }
+            if (contador + dia > seis) {
+                return dia - seis + contador;
+            } else {
+                return dia + contador;
+            }
+        } else {
+            d = ref(desejada, referencia, dia);
+            contador = 0;
+            while (contador < (d % sete)) {
+                contador++;
+            }
+            if (dia - contador < 1) {
+                return seis - contador + dia;
+            } else {
+                return dia - contador;
+            }
         }
-        while(verificaData(converteParaVetor(desejada), 
-                fazAno(converteParaVetor(desejada))) == -1){
-            System.out.print("Data inválida, digite outra data: ");
-            desejada = ler.nextInt();
-        }
-        
-        System.out.print("Digite um ano \"bissexto\": ");
-        int bi = ler.nextInt();
-        while(verificaBissextoDado(bi) == -1){
-            System.out.print("Digite um número maior que 0: ");
-            bi = ler.nextInt();
-        }
-        
-        System.out.print("Digite uma data para referência: ");
-        int referencia = ler.nextInt();
-        while(verTamanhoData(referencia) == -1){
-            System.out.print("Digite uma data maior que 0 e com 8 números: ");
-            referencia = ler.nextInt();
-        }
-        while(verificaData(converteParaVetor(referencia), 
-                fazAno(converteParaVetor(referencia))) == -1){
-            System.out.print("Data inválida, digite outra data: ");
-            referencia = ler.nextInt();
-        }
-        
-        System.out.print("Digite um dia da semana para referência: ");
-        int dia = ler.nextInt();
-        while("Esse dia da semana não existe.".equals(descobreDia(dia))){
-            System.out.print("Esse dia da semana dado como referência não "
-                    + "existe. Digite outro: ");
-            dia = ler.nextInt();
-        }
-        
-        System.out.println("Data desejada: " + desejada);
-        System.out.println("Data de referência " + referencia);
-        System.out.println("Dia da semana de referência: " + descobreDia(dia));
-        
-        System.out.println("O dia da semana desejado é " 
-                + descobreDia(resultado(desejada, referencia, dia)));
-        
     }
-    
 }
