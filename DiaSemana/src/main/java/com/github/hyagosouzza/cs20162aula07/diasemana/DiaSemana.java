@@ -2,19 +2,24 @@
  * Copyright (c) 2016. Fábrica de Software - Instituto de Informática (UFG)
  * Creative Commons Attribution 4.0 International License.
  */
+
 package com.github.hyagosouzza.cs20162aula07.diasemana;
+
 import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
-/**Classe para utilizar métodos a fim de descobrir o dia da semana de uma data
+
+/**
+ * Classe para utilizar métodos a fim de descobrir o dia da semana de uma data
  * específica.
- * @author Hyago Vieira de Souza
  * @version 1.0
  */
 public class DiaSemana {
-    /**Método para ver o tamanho da data recebida e retornar se ela é aceita.
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
+    
+    /**
+     * Método para ver o tamanho da data recebida e retornar se ela é aceita.
      * @param data final int
      * @return int
      */
@@ -27,9 +32,9 @@ public class DiaSemana {
             return -1;
         }
     }
-    /**Método para verificar se o bissexto recebido é aceitável.
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
+    
+    /**
+     * Método para verificar se o bissexto recebido é aceitável.
      * @param ano final int
      * @return int
      */
@@ -40,36 +45,9 @@ public class DiaSemana {
             return -1;
         }
     }
-    /**Método para retornar o dia da semana correspondente a um certo número.
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
-     * @param dia final int
-     * @return String - Dia da semana
-     */
-    public final String descobreDia(final int dia) {
-        final int quarta = 3, quinta = 4, sexta = 5, sabado = 6;
-        switch (dia) {
-            case 0:
-                return "Domingo";
-            case 1:
-                return "Segunda";
-            case 2:
-                return "Terça";
-            case quarta:
-                return "Quarta";
-            case quinta:
-                return "Quinta";
-            case sexta:
-                return "Sexta";
-            case sabado:
-                return "Sábado";
-            default:
-                return "Esse dia da semana não existe.";
-        }
-    }
-    /**Método para retornar um vetor com a data recebida.
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
+
+    /**
+     * Método para retornar um vetor com a data recebida.
      * @param data final int
      * @return int[]
      */
@@ -83,10 +61,10 @@ public class DiaSemana {
         }
         return vetor;
     }
-    /**Método para receber um vetor com uma data e retornar seu ano como um
+    
+    /**
+     * Método para receber um vetor com uma data e retornar seu ano como um
      * inteiro.
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
      * @param vetor final []int
      * @return int
      */
@@ -102,9 +80,9 @@ public class DiaSemana {
         }
         return ano;
     }
-    /**Método para verificar se a data recebida é aceita.
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
+    
+    /**
+     * Método para verificar se a data recebida é aceita.
      * @param ano final int
      * @param vetor final []int
      * @return int
@@ -149,10 +127,10 @@ public class DiaSemana {
             return 0;
         }
     }
-    /**Método para verificar a quantidade de dias entre duas datas (Data
+    
+    /**
+     * Método para verificar a quantidade de dias entre duas datas (Data
      * desejada maior que a data referência).
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
      * @param desejada final int
      * @param referencia final int
      * @param d final int
@@ -176,10 +154,10 @@ public class DiaSemana {
             return -1;
         }
     }
-    /**Método para verificar a quantidade de dias entre duas datas (Data
+    
+    /**
+     * Método para verificar a quantidade de dias entre duas datas (Data
      * desejada menor que a data referência).
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
      * @param desejada final int
      * @param referencia final int
      * @param d final int
@@ -203,10 +181,10 @@ public class DiaSemana {
             return -1;
         }
     }
-    /**Método para verificar a maior data e retornar o número do dia da semana
+    
+    /**
+     * Método para verificar a maior data e retornar o número do dia da semana
      * desejado.
-     * @author Hyago Vieira de Souza
-     * @since Relase 01 da aplicação
      * @param desejada final int
      * @param referencia final int
      * @param dia final int
