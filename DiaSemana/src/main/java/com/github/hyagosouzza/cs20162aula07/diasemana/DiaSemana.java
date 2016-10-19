@@ -16,8 +16,8 @@ import java.util.Date;
  * específica.
  * @version 1.0
  */
-public class DiaSemana {
-    
+public class DiaSemana
+{
     /**
      * Método para ver o tamanho da data recebida e retornar se ela é aceita.
      * @param data final int
