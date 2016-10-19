@@ -134,7 +134,8 @@ public class DiaSemana {
      * @param desejada final int
      * @param referencia final int
      * @param d final int
-     * @throw ParseExcepcion
+     * @throw ParseExcepcion - Caso a data recebida seja fora dos padrões 
+     * para ser trabalhada ("yyyMMdd")
      * @return int
      */
     public final long desej(final int desejada, final int referencia,
