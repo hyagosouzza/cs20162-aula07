@@ -570,7 +570,7 @@ public class DiaSemanaTest {
     
     @Test
     public void testVerificaData51() {
-        int[] vetor = new int[]{}2,0,0,0,0,8,3,0;
+        int[] vetor = new int[]{2,0,0,0,0,8,3,0};
         int ano = 2000;
         DiaSemana instance = new DiaSemana();
         int expResult = 0;
