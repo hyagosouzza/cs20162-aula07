@@ -16,8 +16,8 @@ import java.util.Date;
  * específica.
  * @version 1.0
  */
-public class DiaSemana
-{
+public class DiaSemana {
+
     /**
      * Método para ver o tamanho da data recebida e retornar se ela é aceita.
      * @param data final int
@@ -32,7 +32,7 @@ public class DiaSemana
             return -1;
         }
     }
-    
+
     /**
      * Método para verificar se o bissexto recebido é aceitável.
      * @param ano final int
@@ -61,7 +61,7 @@ public class DiaSemana
         }
         return vetor;
     }
-    
+
     /**
      * Método para receber um vetor com uma data e retornar seu ano como um
      * inteiro.
@@ -80,7 +80,7 @@ public class DiaSemana
         }
         return ano;
     }
-    
+
     /**
      * Método para verificar se a data recebida é aceita.
      * @param ano final int
@@ -127,7 +127,7 @@ public class DiaSemana
             return 0;
         }
     }
-    
+
     /**
      * Método para verificar a quantidade de dias entre duas datas (Data
      * desejada maior que a data referência).
@@ -154,7 +154,7 @@ public class DiaSemana
             return -1;
         }
     }
-    
+
     /**
      * Método para verificar a quantidade de dias entre duas datas (Data
      * desejada menor que a data referência).
@@ -181,7 +181,7 @@ public class DiaSemana
             return -1;
         }
     }
-    
+
     /**
      * Método para verificar a maior data e retornar o número do dia da semana
      * desejado.
