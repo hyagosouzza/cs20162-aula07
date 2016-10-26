@@ -113,32 +113,37 @@ public class DiaSemana {
                 || vetor[quatroMaisUm] == quatroMaisUm
                 || vetor[quatroMaisUm] == seisMaisUm
                 || vetor[quatroMaisUm] == dobroDeQuatro)
-                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > trintaMaisUm)) {
+                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm]
+                > trintaMaisUm)) {
             return -1;
-        } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm] == umMenosUm
-                || vetor[quatroMaisUm] == dobroDeUm))
-                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > trintaMaisUm)) {
+        } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm]
+                == umMenosUm || vetor[quatroMaisUm] == dobroDeUm))
+                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm]
+                > trintaMaisUm)) {
             return -1;
         } else if ((vetor[dobroDeDois] == umMenosUm && (vetor[quatroMaisUm]
                 == dobroDeDois
-                || vetor[quatroMaisUm] == cincoMaisUm || vetor[quatroMaisUm] == oitoMaisUm))
-                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > dobroDeQuinze)) {
+                || vetor[quatroMaisUm] == cincoMaisUm || vetor[quatroMaisUm]
+                == oitoMaisUm) && (vetor[cincoMaisUm] * dobroDeCinco
+                + vetor[seisMaisUm] > dobroDeQuinze)) {
             return -1;
         } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm]
                 == metadeDeDois)) && (vetor[cincoMaisUm] * dobroDeCinco
                 + vetor[seisMaisUm] > dobroDeQuinze)) {
             return -1;
-        } else if (((vetor[dobroDeDois] == umMenosUm && vetor[quatroMaisUm] == dobroDeUm)
-                && bissexto) && vetor[cincoMaisUm] >= doisMaisUm) {
+        } else if (((vetor[dobroDeDois] == umMenosUm && vetor[quatroMaisUm]
+                   == dobroDeUm) && bissexto) && vetor[cincoMaisUm]
+                   >= doisMaisUm) {
             return -1;
-        } else if (((vetor[dobroDeDois] == umMenosUm && vetor[quatroMaisUm] == dobroDeUm)
-                && !bissexto) && (vetor[cincoMaisUm] * dobroDeCinco
-                + vetor[seisMaisUm] > vinteMaisOito)) {
+        } else if (((vetor[dobroDeDois] == umMenosUm && vetor[quatroMaisUm]
+                     == dobroDeUm) && !bissexto) && (vetor[cincoMaisUm]
+                     * dobroDeCinco + vetor[seisMaisUm] > vinteMaisOito)) {
             return -1;
         } else if (vetor[umMenosUm] + vetor[metadeDeDois] + vetor[dobroDeUm]
                    + vetor[doisMaisUm] <= umMenosUm) {
             return -1;
-        } else if (vetor[dobroDeDois] >= metadeDeDois && vetor[quatroMaisUm] >= doisMaisUm) {
+        } else if (vetor[dobroDeDois] >= metadeDeDois && vetor[quatroMaisUm]
+                   >= doisMaisUm) {
             return -1;
         } else if (vetor[dobroDeDois] + vetor[quatroMaisUm] <= umMenosUm) {
             return -1;
@@ -168,8 +173,8 @@ public class DiaSemana {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             Date dataDe = sdf.parse(inicial);
             Date dataAte = sdf.parse(fim);
-            long dif = (dataAte.getTime() - dataDe.getTime()) / (milenio * dobroDeTrinta
-                    * dobroDeTrinta * vinteMaisQuatro);
+            long dif = (dataAte.getTime() - dataDe.getTime()) / (milenio
+                    * dobroDeTrinta * dobroDeTrinta * vinteMaisQuatro);
             return dif;
         } catch (ParseException e) {
             e.printStackTrace();
@@ -195,8 +200,8 @@ public class DiaSemana {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             Date dataDe = sdf.parse(inicial);
             Date dataAte = sdf.parse(fim);
-            long dif = (dataAte.getTime() - dataDe.getTime()) / (milenio * dobroDeTrinta
-                    * dobroDeTrinta * vinteMaisQuatro);
+            long dif = (dataAte.getTime() - dataDe.getTime()) / (milenio
+                    * dobroDeTrinta * dobroDeTrinta * vinteMaisQuatro);
             return dif;
         } catch (ParseException e) {
             e.printStackTrace();
