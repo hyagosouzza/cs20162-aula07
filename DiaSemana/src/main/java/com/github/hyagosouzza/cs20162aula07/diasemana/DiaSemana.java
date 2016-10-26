@@ -100,36 +100,43 @@ public class DiaSemana {
         final int cincoMaisUm = 6;
         final int dobroDeCinco = 10;
         final int dobroDeQuinze = 30;
-        final int trintaMaisUm = 31; 
+        final int trintaMaisUm = 31;
         final int vinteMaisOito = 28;
         final int umMenosUm = 0;
         final int metadeDeDois = 1;
         final int dobroDeUm = 2;
-        boolean bissexto = (ano % dobroDeDois == umMenosUm) && ((ano % seculo != umMenosUm)
+        boolean bissexto = (ano % dobroDeDois == umMenosUm)
+                && ((ano % seculo != umMenosUm)
                 || (ano % (dobroDeDois * seculo) == umMenosUm));
         if (vetor[dobroDeDois] == 0 && (vetor[quatroMaisUm] == metadeDeDois
-                || vetor[quatroMaisUm] == doisMaisUm || vetor[quatroMaisUm] == quatroMaisUm
-                || vetor[quatroMaisUm] == seisMaisUm || vetor[quatroMaisUm] == dobroDeQuatro)
+                || vetor[quatroMaisUm] == doisMaisUm
+                || vetor[quatroMaisUm] == quatroMaisUm
+                || vetor[quatroMaisUm] == seisMaisUm
+                || vetor[quatroMaisUm] == dobroDeQuatro)
                 && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > trintaMaisUm)) {
             return -1;
         } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm] == umMenosUm
                 || vetor[quatroMaisUm] == dobroDeUm))
                 && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > trintaMaisUm)) {
             return -1;
-        } else if ((vetor[dobroDeDois] == umMenosUm && (vetor[quatroMaisUm] == dobroDeDois
+        } else if ((vetor[dobroDeDois] == umMenosUm && (vetor[quatroMaisUm]
+                == dobroDeDois
                 || vetor[quatroMaisUm] == cincoMaisUm || vetor[quatroMaisUm] == oitoMaisUm))
                 && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > dobroDeQuinze)) {
             return -1;
-        } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm] == metadeDeDois))
-                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > dobroDeQuinze)) {
+        } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm]
+                == metadeDeDois)) && (vetor[cincoMaisUm] * dobroDeCinco
+                + vetor[seisMaisUm] > dobroDeQuinze)) {
             return -1;
         } else if (((vetor[dobroDeDois] == umMenosUm && vetor[quatroMaisUm] == dobroDeUm)
                 && bissexto) && vetor[cincoMaisUm] >= doisMaisUm) {
             return -1;
-        } else if (((vetor[dobroDeDois] == umMenosUm && vetor[quatroMaisUm] == dobroDeUm) && !bissexto)
-                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > vinteMaisOito)) {
+        } else if (((vetor[dobroDeDois] == umMenosUm && vetor[quatroMaisUm] == dobroDeUm)
+                && !bissexto) && (vetor[cincoMaisUm] * dobroDeCinco
+                + vetor[seisMaisUm] > vinteMaisOito)) {
             return -1;
-        } else if (vetor[umMenosUm] + vetor[metadeDeDois] + vetor[dobroDeUm] + vetor[doisMaisUm] <= umMenosUm) {
+        } else if (vetor[umMenosUm] + vetor[metadeDeDois] + vetor[dobroDeUm]
+                   + vetor[doisMaisUm] <= umMenosUm) {
             return -1;
         } else if (vetor[dobroDeDois] >= metadeDeDois && vetor[quatroMaisUm] >= doisMaisUm) {
             return -1;
