@@ -124,7 +124,7 @@ public class DiaSemana {
         } else if ((vetor[dobroDeDois] == umMenosUm && (vetor[quatroMaisUm]
                 == dobroDeDois
                 || vetor[quatroMaisUm] == cincoMaisUm || vetor[quatroMaisUm]
-                == oitoMaisUm) && (vetor[cincoMaisUm] * dobroDeCinco
+                == oitoMaisUm)) && (vetor[cincoMaisUm] * dobroDeCinco
                 + vetor[seisMaisUm] > dobroDeQuinze)) {
             return -1;
         } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm]
