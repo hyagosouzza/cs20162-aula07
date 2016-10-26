@@ -622,10 +622,9 @@ public class DiaSemanaTest {
     public void testDesej() {
         int desejada = 20161013;
         int referência = 20161012;
-        int d = 3;
         DiaSemana instance = new DiaSemana();
         long expResult = 1L;
-        long result = instance.desej(desejada, referência, d);
+        long result = instance.desej(desejada, referência);
         assertEquals(expResult, result);
     }
     
@@ -633,10 +632,9 @@ public class DiaSemanaTest {
     public void testDesej2() {
         int desejada = 61013;
         int referência = 20161012;
-        int d = 3;
         DiaSemana instance = new DiaSemana();
         long expResult = -1;
-        long result = instance.desej(desejada, referência, d);
+        long result = instance.desej(desejada, referência);
         assertEquals(expResult, result);
     }
     
@@ -644,10 +642,9 @@ public class DiaSemanaTest {
     public void testRef() {
         int desejada = 20161012;
         int referencia = 20161013;
-        int d = 3;
         DiaSemana instance = new DiaSemana();
         long expResult = 1L;
-        long result = instance.ref(desejada, referencia, d);
+        long result = instance.ref(desejada, referencia);
         assertEquals(expResult, result);
     }
     
@@ -655,10 +652,9 @@ public class DiaSemanaTest {
     public void testRef2() {
         int desejada = 20161012;
         int referencia = 61013;
-        int d = 3;
         DiaSemana instance = new DiaSemana();
         long expResult = -1;
-        long result = instance.ref(desejada, referencia, d);
+        long result = instance.ref(desejada, referencia);
         assertEquals(expResult, result);
     }
     
