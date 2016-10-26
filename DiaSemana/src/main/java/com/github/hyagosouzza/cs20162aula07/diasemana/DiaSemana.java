@@ -96,6 +96,7 @@ public class DiaSemana {
         final int doisMaisUm = 3;
         final int seisMaisUm = 7;
         final int dobroDeQuatro = 8;
+        final int oitoMaisUm = 9;
         final int cincoMaisUm = 6;
         final int dobroDeCinco = 10;
         final int dobroDeQuinze = 30;
@@ -116,7 +117,7 @@ public class DiaSemana {
                 && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > trintaMaisUm)) {
             return -1;
         } else if ((vetor[dobroDeDois] == umMenosUm && (vetor[quatroMaisUm] == dobroDeDois
-                || vetor[quatroMaisUm] == cincoMaisUm || vetor[quatroMaisUm] == cincoMaisUm))
+                || vetor[quatroMaisUm] == cincoMaisUm || vetor[quatroMaisUm] == oitoMaisUm))
                 && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > dobroDeQuinze)) {
             return -1;
         } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm] == metadeDeDois))
