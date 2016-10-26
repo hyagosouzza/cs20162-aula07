@@ -39,7 +39,8 @@ public class DiaSemana {
      * @return int
      */
     public final int verificaBissextoDado(final int ano) {
-        if (ano > 0) {
+        final int umMenosUm = 0;
+        if (ano > umMenosUm) {
             return 0;
         } else {
             return -1;
@@ -54,10 +55,11 @@ public class DiaSemana {
     public final int[] converteParaVetor(final int data) {
         String convertida = Integer.toString(data);
         final int tamanho = 8;
+        final int metadeDeDois = 1;
         int[]vetor = new int[tamanho];
         for (int contador = 0; contador < tamanho; contador++) {
             vetor[contador] = Integer.parseInt(convertida.substring(contador,
-                    contador + 1));
+                    contador + metadeDeDois));
         }
         return vetor;
     }
@@ -70,8 +72,8 @@ public class DiaSemana {
      */
     public final int fazAno(final int[]vetor) {
         int ano = 0;
-        final int mil = 1000;
-        int multiplicador = mil;
+        final int milenio = 1000;
+        int multiplicador = milenio;
         final int divisor = 10;
         final int tamanhoAno = 4;
         for (int contador = 0; contador < tamanhoAno; contador++) {
@@ -88,40 +90,51 @@ public class DiaSemana {
      * @return int
      */
     public final int verificaData(final int[]vetor, final int ano) {
-        final int quatro = 4, cem = 100, cinco = 5, tres = 3, sete = 7,
-                oito = 8, seis = 6, nove = 9, dez = 10, trinta = 30,
-                trintaUm = 31, vinteOito = 28;
-        boolean bissexto = (ano % quatro == 0) && ((ano % cem != 0)
-                || (ano % (quatro * cem) == 0));
-        if (vetor[quatro] == 0 && (vetor[cinco] == 1
-                || vetor[cinco] == tres || vetor[cinco] == cinco
-                || vetor[cinco] == sete || vetor[cinco] == oito)
-                && (vetor[seis] * dez + vetor[sete] > trintaUm)) {
+        final int dobroDeDois = 4;
+        final int seculo = 100;
+        final int quatroMaisUm = 5;
+        final int doisMaisUm = 3;
+        final int seisMaisUm = 7;
+        final int dobroDeQuatro = 8;
+        final int cincoMaisUm = 6;
+        final int dobroDeCinco = 10;
+        final int dobroDeQuinze = 30;
+        final int trintaMaisUm = 31; 
+        final int vinteMaisOito = 28;
+        final int umMenosUm = 0;
+        final int metadeDeDois = 1;
+        final int dobroDeUm = 2;
+        boolean bissexto = (ano % dobroDeDois == umMenosUm) && ((ano % seculo != umMenosUm)
+                || (ano % (dobroDeDois * seculo) == umMenosUm));
+        if (vetor[dobroDeDois] == 0 && (vetor[quatroMaisUm] == metadeDeDois
+                || vetor[quatroMaisUm] == doisMaisUm || vetor[quatroMaisUm] == quatroMaisUm
+                || vetor[quatroMaisUm] == seisMaisUm || vetor[quatroMaisUm] == dobroDeQuatro)
+                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > trintaMaisUm)) {
             return -1;
-        } else if ((vetor[quatro] == 1 && (vetor[cinco] == 0
-                || vetor[cinco] == 2))
-                && (vetor[seis] * dez + vetor[sete] > trintaUm)) {
+        } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm] == umMenosUm
+                || vetor[quatroMaisUm] == dobroDeUm))
+                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > trintaMaisUm)) {
             return -1;
-        } else if ((vetor[quatro] == 0 && (vetor[cinco] == quatro
-                || vetor[cinco] == seis || vetor[cinco] == nove))
-                && (vetor[seis] * dez + vetor[sete] > trinta)) {
+        } else if ((vetor[dobroDeDois] == umMenosUm && (vetor[quatroMaisUm] == dobroDeDois
+                || vetor[quatroMaisUm] == cincoMaisUm || vetor[quatroMaisUm] == cincoMaisUm))
+                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > dobroDeQuinze)) {
             return -1;
-        } else if ((vetor[quatro] == 1 && (vetor[cinco] == 1))
-                && (vetor[seis] * dez + vetor[sete] > trinta)) {
+        } else if ((vetor[dobroDeDois] == metadeDeDois && (vetor[quatroMaisUm] == metadeDeDois))
+                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > dobroDeQuinze)) {
             return -1;
-        } else if (((vetor[quatro] == 0 && vetor[cinco] == 2)
-                && bissexto) && vetor[seis] >= tres) {
+        } else if (((vetor[dobroDeDois] == umMenosUm && vetor[quatroMaisUm] == dobroDeUm)
+                && bissexto) && vetor[cincoMaisUm] >= doisMaisUm) {
             return -1;
-        } else if (((vetor[quatro] == 0 && vetor[cinco] == 2) && !bissexto)
-                && (vetor[seis] * dez + vetor[sete] > vinteOito)) {
+        } else if (((vetor[dobroDeDois] == umMenosUm && vetor[quatroMaisUm] == dobroDeUm) && !bissexto)
+                && (vetor[cincoMaisUm] * dobroDeCinco + vetor[seisMaisUm] > vinteMaisOito)) {
             return -1;
-        } else if (vetor[0] + vetor[1] + vetor[2] + vetor[tres] <= 0) {
+        } else if (vetor[umMenosUm] + vetor[metadeDeDois] + vetor[dobroDeUm] + vetor[doisMaisUm] <= umMenosUm) {
             return -1;
-        } else if (vetor[quatro] >= 1 && vetor[cinco] >= tres) {
+        } else if (vetor[dobroDeDois] >= metadeDeDois && vetor[quatroMaisUm] >= doisMaisUm) {
             return -1;
-        } else if (vetor[quatro] + vetor[cinco] <= 0) {
+        } else if (vetor[dobroDeDois] + vetor[quatroMaisUm] <= umMenosUm) {
             return -1;
-        } else if (vetor[seis] + vetor[sete] <= 0) {
+        } else if (vetor[cincoMaisUm] + vetor[seisMaisUm] <= umMenosUm) {
             return -1;
         } else {
             return 0;
@@ -133,22 +146,22 @@ public class DiaSemana {
      * desejada maior que a data referência).
      * @param desejada final int
      * @param referencia final int
-     * @param d final int
      * @throw ParseExcepcion - Caso a data recebida seja fora dos padrões
      * para ser trabalhada ("yyyMMdd")
      * @return int
      */
-    public final long desej(final int desejada, final int referencia,
-            final int d) {
-        final int mil = 1000, vinteQuatro = 24, sessenta = 60;
+    public final long desej(final int desejada, final int referencia) {
+        final int milenio = 1000;
+        final int vinteMaisQuatro = 24;
+        final int dobroDeTrinta = 60;
         try {
             String inicial = Integer.toString(referencia);
             String fim = Integer.toString(desejada);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             Date dataDe = sdf.parse(inicial);
             Date dataAte = sdf.parse(fim);
-            long dif = (dataAte.getTime() - dataDe.getTime()) / (mil * sessenta
-                    * sessenta * vinteQuatro);
+            long dif = (dataAte.getTime() - dataDe.getTime()) / (milenio * dobroDeTrinta
+                    * dobroDeTrinta * vinteMaisQuatro);
             return dif;
         } catch (ParseException e) {
             e.printStackTrace();
@@ -161,21 +174,21 @@ public class DiaSemana {
      * desejada menor que a data referência).
      * @param desejada final int
      * @param referencia final int
-     * @param d final int
      * @throw ParseExcepcion
      * @return int
      */
-    public final long ref(final int desejada, final int referencia,
-            final int d) {
+    public final long ref(final int desejada, final int referencia) {
         try {
-            final int mil = 1000, vinteQuatro = 24, sessenta = 60;
+            final int milenio = 1000;
+            final int vinteMaisQuatro = 24;
+            final int dobroDeTrinta = 60;
             String inicial = Integer.toString(desejada);
             String fim = Integer.toString(referencia);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             Date dataDe = sdf.parse(inicial);
             Date dataAte = sdf.parse(fim);
-            long dif = (dataAte.getTime() - dataDe.getTime()) / (mil * sessenta
-                    * sessenta * vinteQuatro);
+            long dif = (dataAte.getTime() - dataDe.getTime()) / (milenio * dobroDeTrinta
+                    * dobroDeTrinta * vinteMaisQuatro);
             return dif;
         } catch (ParseException e) {
             e.printStackTrace();
@@ -195,26 +208,28 @@ public class DiaSemana {
             final int dia) {
         long d;
         int contador;
-        final int sete = 7, seis = 6;
+        final int seisMaisUm = 7;
+        final int cincoMaisUm = 6;
+        final int metadeDeDois = 1;
         if (desejada > referencia) {
-            d = desej(desejada, referencia, dia);
+            d = desej(desejada, referencia);
             contador = 0;
-            while (contador < (d % sete)) {
+            while (contador < (d % seisMaisUm)) {
                 contador++;
             }
-            if (contador + dia > seis) {
-                return dia - seis + contador;
+            if (contador + dia > cincoMaisUm) {
+                return dia - cincoMaisUm + contador;
             } else {
                 return dia + contador;
             }
         } else {
-            d = ref(desejada, referencia, dia);
+            d = ref(desejada, referencia);
             contador = 0;
-            while (contador < (d % sete)) {
+            while (contador < (d % seisMaisUm)) {
                 contador++;
             }
-            if (dia - contador < 1) {
-                return seis - contador + dia;
+            if (dia - contador < metadeDeDois) {
+                return cincoMaisUm - contador + dia;
             } else {
                 return dia - contador;
             }
